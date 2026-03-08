@@ -39,7 +39,7 @@ export default function Navbar() {
       <nav className={`${s.nav} ${scrolled ? s.navScrolled : ''}`} id="navbar" style={{ top: scrolled ? 0 : (showAnnouncement ? 'var(--announcement-height, 40px)' : 0) }}>
         <div className={s.navInner}>
           <Link href="/" className={s.logo}>
-            <Image src="/images/logo.png" alt="Instadocu" width={200} height={50} className={s.logoImg} priority />
+            <Image src="/images/logo.png" alt="Instadocu" width={160} height={40} className={s.logoImg} priority />
           </Link>
           <div className={s.navLinks}>
             <button className={s.nl} onClick={() => scrollToSection('#features')}>Features</button>
@@ -57,28 +57,29 @@ export default function Navbar() {
       </nav>
 
       <div className={`${s.mobMenu} ${menuOpen ? s.mobMenuOpen : ''}`} id="mobMenu">
-        <button className={s.mobCloseBtn} onClick={toggleMenu} aria-label="Close menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-        
-        <div style={{ marginBottom: '20px' }}>
+        <div className={s.mobHeader}>
           <div className={s.logo}>
-            <Image src="/images/logo.png" alt="Instadocu" width={180} height={45} className={s.logoImg} />
+            <Image src="/images/logo.png" alt="Instadocu" width={160} height={40} className={s.logoImg} />
           </div>
+          <button className={s.mobCloseBtn} onClick={toggleMenu} aria-label="Close menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
         </div>
-
-        <a href="#features" onClick={() => scrollToSection('#features')}>Features</a>
-        <a href="#how" onClick={() => scrollToSection('#how')}>How It Works</a>
-        <a href="#pricing" onClick={() => scrollToSection('#pricing')}>Pricing</a>
-        <a href="#testimonials" onClick={() => scrollToSection('#testimonials')}>Reviews</a>
-        <a href="#faq" onClick={() => scrollToSection('#faq')}>FAQ</a>
         
-        <div className={s.mobBtns}>
-          <Link href="/login" className={s.mobLoginBtn} style={{ textAlign: 'center' }}>Log In</Link>
-          <button className={s.mobTrialBtn} onClick={() => scrollToSection('#pricing')}>Start Free Trial →</button>
+        <div className={s.mobScrollContent}>
+          <a href="#features" onClick={() => scrollToSection('#features')}>Features</a>
+          <a href="#how" onClick={() => scrollToSection('#how')}>How It Works</a>
+          <a href="#pricing" onClick={() => scrollToSection('#pricing')}>Pricing</a>
+          <a href="#testimonials" onClick={() => scrollToSection('#testimonials')}>Reviews</a>
+          <a href="#faq" onClick={() => scrollToSection('#faq')}>FAQ</a>
+          
+          <div className={s.mobBtns}>
+            <Link href="/login" className={s.mobLoginBtn} style={{ textAlign: 'center' }}>Log In</Link>
+            <button className={s.mobTrialBtn} onClick={() => scrollToSection('#pricing')}>Start Free Trial →</button>
+          </div>
         </div>
       </div>
     </>
