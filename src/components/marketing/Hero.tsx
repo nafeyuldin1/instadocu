@@ -36,7 +36,7 @@ export default function Hero() {
                 <div key={i} className={s.trustAv} style={{background:a.c}}>{a.l}</div>
               ))}
             </div>
-            <div className={s.trustWords}><strong>1,200+</strong> professionals trust Instadocu daily<br/>★★★★★ 4.9 rating</div>
+            <div className={s.trustWords}><strong>1,200+</strong> professionals trust Instadocu daily<br/><span className={s.testiStars}>★★★★★</span> 4.9 rating</div>
           </div>
         </div>
 

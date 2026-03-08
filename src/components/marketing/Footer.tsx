@@ -36,10 +36,8 @@ export default function Footer() {
         <div className={s.footerGrid}>
           <div className={s.footerBrand}>
             <Link href="/" className={s.logo}>
-              <Image src="/images/favicon.png" alt="Instadocu" width={36} height={36} style={{borderRadius: 8}} />
-              <div className={s.logoWordmark} style={{ color: '#fff' }}>
-                Instadocu<span className={s.dot}>.</span>
-              </div>
+              <Image src="/images/shortlogo.png" alt="Instadocu" width={48} height={48} className={s.logoImg} />
+              <span className={s.logoWordmark}>Instadocu<span className={s.dot}>.</span></span>
             </Link>
             <p className={s.footerDesc}>
               The complete document management platform for installation and construction professionals in the Netherlands.
