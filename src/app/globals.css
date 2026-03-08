@@ -1,42 +1,80 @@
+/* ══════════════════════════════════════
+   GLOBAL DESIGN TOKENS & BASE STYLES
+   Instadocu
+══════════════════════════════════════ */
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&display=swap");
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --blue: #2a5cba;
+  --blue-dk: #1a3e8c;
+  --blue-lt: #ebf0fa;
+  --blue-xl: rgba(42,92,186,.08);
+  --orange: #e8692c;
+  --orange-dk: #c9541c;
+  --orange-lt: #fff0e8;
+  --cream: #f7f4f0;
+  --cream2: #ede9e3;
+  --dark: #0d0f1a;
+  --dark2: #131626;
+  --dark3: #1c2035;
+  --white: #ffffff;
+  --black: #0c0e1a;
+  --gray: #6b7280;
+  --gray-lt: #9ca3af;
+  --border: #e5e7eb;
+  --border-dk: rgba(255,255,255,.08);
+  --radius-sm: 7px;
+  --radius-md: 11px;
+  --radius-lg: 20px;
+  --radius-xl: 100px;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+  --shadow-md: 0 8px 32px rgba(0,0,0,.08);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,.12);
+  --shadow-blue: 0 6px 22px rgba(42,92,186,.25);
+  --shadow-orange: 0 6px 22px rgba(232,105,44,.28);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body { font-family:"Satoshi",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--black); background:var(--white); overflow-x:hidden; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+a { text-decoration:none; color:inherit; }
+img { display:block; max-width:100%; }
+button { font-family:"Satoshi",sans-serif; cursor:pointer; border:none; }
+ul,ol { list-style:none; }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+.wrap { max-width:1440px; margin:0 auto; padding:0 80px; }
+@media(max-width:1200px){ .wrap{padding:0 48px;} }
+@media(max-width:900px){ .wrap{padding:0 28px;} }
+@media(max-width:600px){ .wrap{padding:0 18px;} }
+@media(max-width:320px){ .wrap{padding:0 12px;} }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+section { padding:100px 0; }
+@media(max-width:900px){ section{padding:72px 0;} }
+@media(max-width:600px){ section{padding:56px 0;} }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+.sec-tag { display:inline-flex; align-items:center; gap:7px; padding:5px 14px; border-radius:var(--radius-xl); font-size:11px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; margin-bottom:18px; }
+.tag-blue { background:var(--blue-lt); color:var(--blue); border:1px solid rgba(42,92,186,.18); }
+.tag-orange { background:var(--orange-lt); color:var(--orange); border:1px solid rgba(232,105,44,.2); }
+.tag-white { background:rgba(255,255,255,.08); color:rgba(255,255,255,.7); border:1px solid rgba(255,255,255,.12); }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+.sec-h2 { font-size:clamp(28px,3vw,46px); font-weight:900; letter-spacing:-1.5px; line-height:1.12; margin-bottom:16px; }
+.sec-p { font-size:clamp(14px,1.1vw,17px); font-weight:400; line-height:1.78; color:var(--gray); max-width:580px; }
+.hl-blue { color:var(--blue); }
+.hl-orange { color:var(--orange); }
+.tc { text-align:center; }
+.tc .sec-p { margin:0 auto; }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+.divider-bar { width:44px; height:4px; background:var(--orange); border-radius:var(--radius-xl); margin-bottom:18px; }
+.divider-center { margin:0 auto 18px; }
+
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease,transform .7s ease; }
+.reveal.in { opacity:1; transform:none; }
+.rd1{transition-delay:.08s;} .rd2{transition-delay:.16s;} .rd3{transition-delay:.24s;} .rd4{transition-delay:.32s;}
+
+.check-list { list-style:none; display:flex; flex-direction:column; gap:13px; margin:24px 0 32px; }
+.check-list li { display:flex; align-items:flex-start; gap:11px; font-size:14px; font-weight:500; color:var(--gray); line-height:1.6; }
+.check-list li::before { content:"✓"; width:22px; height:22px; background:var(--blue); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:900; flex-shrink:0; margin-top:1px; }
+
+@keyframes pulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(.75);opacity:.5;} }
+@keyframes hfloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+@keyframes ticker { from{transform:translateX(0);} to{transform:translateX(-50%);} }
