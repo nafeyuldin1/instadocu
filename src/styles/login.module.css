@@ -1,0 +1,917 @@
+/* ══════════════════════════════════════
+   LOGIN PAGES STYLES
+   Adapting the static HTML into a responsive Next.js module
+══════════════════════════════════════ */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  background: var(--cream);
+  overflow-x: hidden;
+}
+
+@media (max-width: 992px) {
+  .page {
+    flex-direction: column;
+  }
+}
+
+/* ─── LEFT HERO (BLUE FOR ALL LOGIN PAGES BASED ON SCREENSHOTS) ─── */
+.hero {
+  flex: 0 0 560px;
+  background: var(--blue);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 64px 60px;
+  animation: heroSlide 0.9s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+@media (max-width: 1200px) {
+  .hero {
+    flex: 0 0 460px;
+    padding: 64px 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero {
+    flex: auto;
+    width: 100%;
+    min-height: 60vh;
+    padding: 40px 24px;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+}
+
+@keyframes heroSlide {
+  from { transform: translateX(-40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Decorative circles */
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -140px; top: -140px;
+  width: 420px; height: 420px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -70px; top: -70px;
+  width: 240px; height: 240px;
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.heroCircleBottom {
+  position: absolute;
+  left: -100px; bottom: -100px;
+  width: 360px; height: 360px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.heroOrangeBar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: var(--orange);
+}
+
+/* Brand */
+.heroBrand { position: relative; z-index: 2; margin-bottom: auto;}
+@media (max-width: 992px) {
+  .heroBrand { margin-bottom: 0; }
+}
+
+.brandLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 72px;
+}
+@media (max-width: 992px) {
+  .brandLogo { margin-bottom: 40px; }
+}
+
+.brandDot {
+  width: 14px; height: 14px;
+  background: var(--orange);
+  border-radius: 50%;
+}
+
+.brandName {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.heroTag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  background: rgba(232,105,44,0.12);
+  border-radius: 100px;
+  border: 1px solid rgba(232,105,44,0.25);
+}
+
+.heroHeading {
+  font-size: clamp(40px, 5vw, 60px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 28px;
+  letter-spacing: -1.5px;
+}
+
+.heroHeading em {
+  font-style: italic;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.heroBody {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.75;
+  max-width: 380px;
+}
+
+/* Middle content areas */
+.heroMiddle {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: auto 0;
+}
+@media (max-width: 992px) {
+  .heroMiddle { margin: 20px 0; }
+}
+
+
+.avatarCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 18px 24px;
+  backdrop-filter: blur(8px);
+}
+
+.avatarIcon {
+  width: 56px; height: 56px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+}
+
+.avatarRole {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 2px;
+}
+
+.avatarName {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* Feature pills (Customer Portal) */
+.heroFeatures {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: auto 0;
+}
+@media (max-width: 992px) {
+  .heroFeatures { margin: 20px 0; }
+}
+
+.featurePill {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.featureIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.featureText {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+}
+
+/* Stats row */
+.heroStats {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 32px;
+  margin-top: auto;
+}
+@media (max-width: 992px) {
+  .heroStats { margin-top: 20px; }
+}
+
+.stat {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.stat + .stat {
+  padding-left: 20px;
+  border-left: 1px solid rgba(255,255,255,0.12);
+}
+
+.statNum {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: -1px;
+}
+
+.statNum span { color: var(--orange); font-size: clamp(14px, 2vw, 22px); }
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ─── RIGHT LOGIN PANEL ─── */
+.loginPanel {
+  flex: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 100px;
+  background: var(--cream);
+  position: relative;
+  animation: panelSlide 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+@media (max-width: 1200px) {
+  .loginPanel { padding: 60px 40px; }
+}
+
+@media (max-width: 992px) {
+  .loginPanel { 
+    min-height: auto;
+    padding: 60px 24px; 
+  }
+}
+
+@keyframes panelSlide {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Orange corner glow */
+.loginPanel::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle at top right, rgba(232,105,44,0.08), transparent 70%);
+  pointer-events: none;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  z-index: 2;
+}
+
+.formEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.formEyebrowLine {
+  width: 36px; height: 2px;
+  background: var(--orange);
+}
+
+.formEyebrowText {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.formTitle {
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--black);
+  letter-spacing: -1.2px;
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+
+.formSubtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--gray);
+  margin-bottom: 44px;
+  line-height: 1.6;
+}
+
+.formSubtitleQr {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--gray);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* Fields */
+.fieldGroup {
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.fieldLabel {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #BBBBBB;
+  margin-bottom: 10px;
+}
+
+.fieldLabelOpt {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #CCCCCC;
+}
+
+.fieldInput {
+  width: 100%;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--black);
+  outline: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.fieldInputQr {
+  margin-bottom: 20px;
+}
+
+.fieldInput::placeholder { color: #CCCCCC; }
+.fieldInput:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(42,92,186,0.08);
+}
+.fieldInputQr:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(42,92,186,0.08);
+}
+
+.projHint {
+  font-size: 11px;
+  color: #CCCCCC;
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+/* Bottom row */
+.bottomRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0 36px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.chk {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  font-size: 11px;
+  color: transparent;
+  background: var(--white);
+  flex-shrink: 0;
+}
+
+.chk.on { background: var(--blue); border-color: var(--blue); color: white; }
+
+.rememberText {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray);
+}
+
+.forgotLink {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.forgotLink:hover { color: var(--orange); }
+
+/* Buttons */
+.btnPrimary {
+  width: 100%;
+  padding: 18px;
+  background: var(--blue);
+  border: none;
+  border-radius: 12px;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(42,92,186,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btnPrimary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+}
+
+.btnPrimary:hover {
+  background: var(--orange);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(232,105,44,0.3);
+}
+
+.btnPrimary:active { transform: translateY(0); }
+
+.btnGhost {
+  width: 100%;
+  padding: 16px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  color: var(--blue);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btnGhost:hover {
+  border-color: var(--blue);
+  background: var(--blue-lt);
+}
+
+.formFooter {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #CCCCCC;
+}
+
+.formFooter a {
+  color: var(--orange);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.formFooterQr {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #CCCCCC;
+}
+
+.formFooterQr a {
+  color: var(--orange);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ─── TAB ROW (FOR QR/PASSCODE TOGGLE) ─── */
+.tabRow {
+  display: flex;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 5px;
+  gap: 4px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.tabBtn {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: #BBBBBB;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: all 0.22s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.tabBtn.active { 
+  background: var(--blue); 
+  color: var(--white); 
+  box-shadow: 0 4px 14px rgba(42,92,186,0.3); 
+}
+
+.tabBtn:hover:not(.active) {
+  color: var(--black);
+  background: rgba(0,0,0,0.02);
+}
+
+/* ─── PASSSCODE SPECIFICS ─── */
+.digitRow {
+  display: flex;
+  gap: clamp(6px, 1.5vw, 10px);
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.dbox {
+  width: clamp(44px, 10vw, 60px); 
+  height: clamp(54px, 12vw, 68px);
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--black);
+  transition: all 0.15s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.dbox.filled { border-color: var(--blue); background: rgba(42,92,186,0.04); }
+.dbox.active { border-color: var(--orange); box-shadow: 0 0 0 4px rgba(232,105,44,0.1); }
+
+.cur {
+  width: 2px; height: 26px;
+  background: var(--orange);
+  animation: blink 1s infinite;
+  display: none;
+  border-radius: 2px;
+}
+
+.dbox.active .cur { display: block; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.digitHint {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #CCCCCC;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin-bottom: 24px;
+}
+
+.key {
+  aspect-ratio: 1.5;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.12s;
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  gap: 2px;
+}
+
+.key:hover { border-color: var(--blue); background: var(--blue-lt); }
+.key:active { background: var(--orange); border-color: var(--orange); transform: scale(0.96); }
+.key:active .kn { color: white; }
+.key:active .ks { color: rgba(255,255,255,0.6); }
+
+.kn { font-size: 22px; font-weight: 700; color: var(--black); line-height: 1; }
+.ks { font-size: 8px; font-weight: 600; letter-spacing: 2px; color: #CCCCCC; text-transform: uppercase; }
+
+.key.special {
+  background: rgba(0,0,0,0.02);
+  border-color: transparent;
+  box-shadow: none;
+  font-size: 20px;
+  color: var(--gray);
+  font-weight: 700;
+}
+
+.key.special:hover { background: rgba(0,0,0,0.05); border-color: transparent; }
+
+.key.submit {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 4px 16px rgba(42,92,186,0.3);
+}
+
+.key.submit:hover { background: var(--blue-dk); border-color: var(--blue-dk); }
+.key.submit:active { background: var(--orange); border-color: var(--orange); box-shadow: 0 4px 16px rgba(232,105,44,0.3); }
+
+/* Numpad preview on Hero (Passcode left panel) */
+.heroNumpadPreview {
+  position: relative;
+  z-index: 2;
+  margin: auto 0;
+}
+
+.numpadCard {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 24px;
+  display: inline-block;
+  backdrop-filter: blur(8px);
+}
+
+.npLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 16px;
+}
+
+.npGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 52px);
+  gap: 8px;
+}
+
+.npKey {
+  width: 52px; height: 44px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  transition: all 0.2s;
+}
+
+.npKey.lit {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: white;
+  box-shadow: 0 4px 14px rgba(232,105,44,0.45);
+  transform: scale(1.06);
+}
+
+
+/* ─── QR SPECIFICS ─── */
+.qrSection { text-align: center; }
+
+.qrIconBig {
+  width: 88px; height: 88px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.qrTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.qrDesc {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+
+.orRow {
+  display: flex; align-items: center; gap: 16px; margin: 24px 0;
+}
+
+.orLine { flex: 1; height: 1px; background: var(--border); }
+.orText { font-size: 11px; font-weight: 600; color: #CCCCCC; letter-spacing: 2px; text-transform: uppercase;}
+
+/* QR animation on Hero (QR left panel) */
+.qrShowcase {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  margin: auto 0;
+}
+
+.qrCard {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.qrFrame {
+  width: 80px; height: 80px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.qrBorder {
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 8px;
+}
+
+.qrC { position: absolute; width: 14px; height: 14px; border-color: white; border-style: solid; }
+.qrC.tl { top: -2px; left: -2px; border-width: 3px 0 0 3px; border-radius: 3px 0 0 0; }
+.qrC.tr { top: -2px; right: -2px; border-width: 3px 3px 0 0; border-radius: 0 3px 0 0; }
+.qrC.bl { bottom: -2px; left: -2px; border-width: 0 0 3px 3px; border-radius: 0 0 0 3px; }
+.qrC.br { bottom: -2px; right: -2px; border-width: 0 3px 3px 0; border-radius: 0 0 3px 0; }
+
+.qrScanLine {
+  position: absolute;
+  left: 8px; right: 8px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, white, transparent);
+  top: 8px;
+  animation: qrscan 1.8s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(255,255,255,0.8);
+}
+
+@keyframes qrscan {
+  0% { top: 8px; }
+  100% { top: calc(100% - 10px); }
+}
+
+.qrDotsGrid {
+  position: absolute;
+  inset: 12px;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 2px;
+}
+
+.qrD {
+  background: rgba(255,255,255,0.6);
+  border-radius: 1px;
+}
+
+.qrCardTitle {
+  margin-bottom: 4px;
+}
+
+.qrCardSub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+}
+
+.qrList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.qrListItem {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.qrListNum {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.qrListTitle {
+  font-weight: 700;
+  color: var(--white);
+  font-size: 14px;
+  margin-bottom: 2px;
+  margin-top: 4px;
+}
+.qrListDesc {
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  line-height: 1.5;
+}

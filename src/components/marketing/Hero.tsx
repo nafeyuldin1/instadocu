@@ -22,7 +22,7 @@ export default function Hero() {
           </h1>
 
           <p className={s.heroDesc}>
-            Instadocu eliminates document chaos for electricians, plumbers and construction teams. Manage 2,200+ project files, share client portals instantly, and keep your entire team aligned — from office to on-site.
+            Installatie dosier eliminates document chaos for electricians, plumbers and construction teams. Manage 2,200+ project files, share client portals instantly, and keep your entire team aligned — from office to on-site.
           </p>
 
           <div className={s.heroBtns}>
@@ -36,7 +36,7 @@ export default function Hero() {
                 <div key={i} className={s.trustAv} style={{background:a.c}}>{a.l}</div>
               ))}
             </div>
-            <div className={s.trustWords}><strong>1,200+</strong> professionals trust Instadocu daily<br/><span className={s.testiStars}>★★★★★</span> 4.9 rating</div>
+            <div className={s.trustWords}><strong>1,200+</strong> professionals trust Installatie dosier daily<br/><span className={s.testiStars}>★★★★★</span> 4.9 rating</div>
           </div>
         </div>
 
@@ -48,7 +48,7 @@ export default function Hero() {
                 <div className={s.hmDot} style={{background:'#ffbd2e'}} />
                 <div className={s.hmDot} style={{background:'#27c93f'}} />
               </div>
-              <div className={s.hmTitle}>Instadocu — Admin Dashboard</div>
+              <div className={s.hmTitle}>Installatie dosier — Admin Dashboard</div>
             </div>
             <div className={s.hmBody}>
               <div className={s.hmSb}>

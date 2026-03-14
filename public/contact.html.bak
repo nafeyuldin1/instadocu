@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact Us — Installatie dosier</title>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --blue:#2A5CBA;--blue-dk:#1a3e8c;--blue-lt:#EBF0FA;--blue-mid:rgba(42,92,186,.10);
+  --orange:#E8692C;--orange-dk:#c9541c;--orange-lt:#FFF0E8;
+  --cream:#F7F4F0;--cream2:#EDE9E3;
+  --dark:#0D0F1A;--dark2:#131626;--dark3:#1B2035;
+  --white:#FFFFFF;--black:#0C0E1A;
+  --gray:#6B7280;--gray-lt:#9CA3AF;--border:#E5E7EB;
+  --green:#16a34a;--green-lt:#dcfce7;
+  --ann-h:44px;--nav-h:72px;
+}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:'Satoshi',system-ui,sans-serif;color:var(--black);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;padding-top:calc(var(--ann-h) + var(--nav-h));}
+img{display:block;max-width:100%;object-fit:cover;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'Satoshi',system-ui,sans-serif;cursor:pointer;border:none;background:none;}
+
+.wrap{max-width:1440px;margin:0 auto;padding:0 72px;}
+@media(max-width:1280px){.wrap{padding:0 48px;}}
+@media(max-width:1024px){.wrap{padding:0 32px;}}
+@media(max-width:640px){.wrap{padding:0 20px;}}
+
+/* ── ANN BAR ── */
+.ann-bar{position:fixed;top:0;left:0;right:0;z-index:1001;height:var(--ann-h);background:linear-gradient(90deg,var(--blue-dk),var(--blue) 40%,#1e5fab 70%,var(--blue-dk));display:flex;align-items:center;justify-content:center;gap:12px;overflow:hidden;}
+.ann-bar::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 120% at 50% 50%,rgba(232,105,44,.18),transparent 70%);pointer-events:none;}
+.ann-text{font-size:13px;font-weight:600;color:#fff;display:flex;align-items:center;gap:10px;position:relative;z-index:1;}
+.ann-chip{background:var(--orange);color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:100px;letter-spacing:.5px;white-space:nowrap;}
+.ann-link{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px;opacity:.85;transition:opacity .2s;white-space:nowrap;}
+.ann-link:hover{opacity:1;}
+.ann-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:6px;background:rgba(255,255,255,.1);cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.ann-close svg{width:12px;height:12px;stroke:#fff;fill:none;}
+
+/* ── NAVBAR ── */
+.nav{position:fixed;top:var(--ann-h);left:0;right:0;z-index:1000;height:var(--nav-h);transition:background .35s,box-shadow .35s,backdrop-filter .35s;}
+.nav .nav-wrap{max-width:1440px;margin:0 auto;padding:0 72px;height:100%;display:flex;align-items:center;gap:32px;}
+@media(max-width:1280px){.nav .nav-wrap{padding:0 48px;}}
+@media(max-width:1024px){.nav .nav-wrap{padding:0 32px;}}
+@media(max-width:640px){.nav .nav-wrap{padding:0 20px;}}
+.nav.glass{background:rgba(255,255,255,.78);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);box-shadow:0 1px 0 rgba(0,0,0,.06),0 8px 40px rgba(0,0,0,.06);}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.logo-box{width:38px;height:38px;background:var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(232,105,44,.35);}
+.logo-box svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;}
+.logo-word{font-size:16px;font-weight:900;color:#fff;letter-spacing:-.4px;}
+.logo-word .dot{color:var(--orange);}
+.nav.glass .logo-word{color:var(--black);}
+.nav-links{display:flex;align-items:center;gap:26px;margin-left:32px;}
+.n-link{font-size:13.5px;font-weight:500;color:rgba(255,255,255,.65);transition:color .2s;}
+.n-link:hover{color:#fff;}
+.nav.glass .n-link{color:var(--gray);}
+.nav.glass .n-link:hover{color:var(--blue);}
+.n-link.active-link{color:#fff;}
+.nav.glass .n-link.active-link{color:var(--blue);font-weight:700;}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.btn-nav-out{padding:8px 18px;border-radius:9px;font-size:13px;font-weight:600;color:rgba(255,255,255,.85);background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.16);transition:all .2s;}
+.btn-nav-out:hover{background:rgba(255,255,255,.18);color:#fff;}
+.nav.glass .btn-nav-out{color:var(--black);background:transparent;border-color:var(--border);}
+.nav.glass .btn-nav-out:hover{border-color:var(--blue);color:var(--blue);}
+.btn-nav-fill{padding:8px 18px;border-radius:9px;font-size:13px;font-weight:800;color:#fff;background:var(--orange);box-shadow:0 4px 14px rgba(232,105,44,.32);transition:all .2s;}
+.btn-nav-fill:hover{background:var(--orange-dk);transform:translateY(-1px);}
+.ham-btn{display:none;width:36px;height:36px;align-items:center;justify-content:center;border-radius:8px;background:rgba(255,255,255,.1);margin-left:auto;cursor:pointer;}
+.ham-btn svg{width:20px;height:20px;stroke:#fff;fill:none;}
+.nav.glass .ham-btn{background:var(--cream);}
+.nav.glass .ham-btn svg{stroke:var(--black);}
+.mob-menu{display:none;position:fixed;inset:0;top:calc(var(--ann-h) + var(--nav-h));background:#fff;z-index:999;flex-direction:column;padding:28px 28px 40px;gap:0;border-top:1px solid var(--border);}
+.mob-menu.open{display:flex;}
+.mob-link{font-size:17px;font-weight:700;color:var(--black);padding:14px 0;border-bottom:1px solid var(--border);}
+.mob-btns{display:flex;flex-direction:column;gap:10px;margin-top:24px;}
+
+/* ── HERO ── */
+.hero{background:var(--dark);position:relative;overflow:hidden;padding:96px 0 88px;}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1800&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:.07;}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,15,26,.97) 0%,rgba(42,92,186,.12) 100%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:60px 60px;z-index:1;}
+.hero-stripe{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange) 0%,rgba(232,105,44,.3) 60%,transparent 100%);z-index:2;}
+.hero-inner{position:relative;z-index:2;text-align:center;max-width:720px;margin:0 auto;}
+.h-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(232,105,44,.12);border:1px solid rgba(232,105,44,.28);border-radius:100px;padding:6px 14px;margin-bottom:26px;}
+.h-pulse{width:7px;height:7px;background:var(--orange);border-radius:50%;animation:pulse 2.4s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(.72);}}
+.h-eyebrow-txt{font-size:11.5px;font-weight:700;color:var(--orange);letter-spacing:.4px;}
+.hero-h1{font-size:clamp(36px,4.5vw,62px);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-2px;margin-bottom:20px;}
+.hero-h1 span{color:var(--orange);}
+.hero-p{font-size:clamp(15px,1.3vw,18px);color:rgba(255,255,255,.45);line-height:1.8;max-width:540px;margin:0 auto 48px;}
+/* Hero contact options */
+.hero-options{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
+@media(max-width:768px){.hero-options{grid-template-columns:1fr;}}
+.ho-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:28px 24px;cursor:pointer;transition:all .25s;text-align:center;}
+.ho-card:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2);transform:translateY(-3px);}
+.ho-card.featured{background:rgba(232,105,44,.1);border-color:rgba(232,105,44,.3);}
+.ho-card.featured:hover{background:rgba(232,105,44,.16);}
+.ho-icon{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.ho-icon svg{width:23px;height:23px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;}
+.ho-title{font-size:16px;font-weight:800;color:#fff;margin-bottom:7px;}
+.ho-desc{font-size:13px;color:rgba(255,255,255,.42);line-height:1.6;margin-bottom:16px;}
+.ho-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:11.5px;font-weight:700;}
+.ho-tag.green{background:rgba(22,163,74,.2);color:#4ade80;}
+.ho-tag.blue{background:rgba(42,92,186,.25);color:#93c5fd;}
+.ho-tag.orange{background:rgba(232,105,44,.2);color:#fdba74;}
+
+/* ── CONTACT SECTION ── */
+.contact-section{padding:96px 0;}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;}
+@media(max-width:1024px){.contact-grid{grid-template-columns:1fr;gap:56px;}}
+
+/* LEFT INFO */
+.contact-info{}
+.sec-label{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;}
+.sec-h2{font-size:clamp(26px,3vw,42px);font-weight:900;color:var(--black);letter-spacing:-1.2px;line-height:1.13;margin-bottom:16px;}
+.sec-p{font-size:16px;color:var(--gray);line-height:1.8;margin-bottom:40px;}
+
+/* Contact methods */
+.contact-methods{display:flex;flex-direction:column;gap:16px;margin-bottom:44px;}
+.cm-item{display:flex;align-items:flex-start;gap:16px;padding:22px;background:var(--cream);border-radius:16px;border:1px solid transparent;transition:all .2s;cursor:pointer;}
+.cm-item:hover{border-color:var(--orange);background:var(--orange-lt);}
+.cm-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cm-icon svg{width:21px;height:21px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;}
+.cm-label{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-lt);margin-bottom:4px;}
+.cm-val{font-size:15px;font-weight:800;color:var(--black);margin-bottom:2px;}
+.cm-sub{font-size:12.5px;color:var(--gray);}
+
+/* Office card */
+.office-card{background:var(--dark);border-radius:20px;padding:28px;margin-bottom:32px;position:relative;overflow:hidden;}
+.office-card::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(42,92,186,.18);pointer-events:none;}
+.oc-label{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:16px;}
+.oc-name{font-size:18px;font-weight:900;color:#fff;margin-bottom:8px;}
+.oc-addr{font-size:14px;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:18px;}
+.oc-map-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-size:13px;font-weight:700;color:#fff;cursor:pointer;transition:all .2s;}
+.oc-map-btn:hover{background:rgba(232,105,44,.2);border-color:rgba(232,105,44,.4);}
+.oc-map-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;}
+
+/* Hours */
+.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.hours-item{background:var(--cream);border-radius:12px;padding:16px;}
+.hi-day{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gray-lt);margin-bottom:4px;}
+.hi-time{font-size:14px;font-weight:700;color:var(--black);}
+.hi-status{display:flex;align-items:center;gap:5px;margin-top:5px;font-size:11.5px;font-weight:600;}
+.hi-dot{width:6px;height:6px;border-radius:50%;}
+
+/* ── FORM ── */
+.form-card{background:#fff;border:1.5px solid var(--border);border-radius:24px;padding:40px;box-shadow:0 8px 40px rgba(0,0,0,.06);}
+.form-title{font-size:22px;font-weight:900;color:var(--black);letter-spacing:-.5px;margin-bottom:6px;}
+.form-sub{font-size:14px;color:var(--gray);margin-bottom:32px;line-height:1.65;}
+
+/* Category tabs */
+.form-tabs{display:flex;background:var(--cream);border-radius:12px;padding:4px;gap:3px;margin-bottom:28px;}
+.form-tab{flex:1;padding:8px 6px;border-radius:9px;font-size:12.5px;font-weight:600;color:var(--gray);cursor:pointer;transition:all .2s;text-align:center;border:none;background:none;}
+.form-tab.active{background:#fff;color:var(--blue);font-weight:800;box-shadow:0 2px 8px rgba(0,0,0,.07);}
+.form-tab:hover:not(.active){color:var(--black);}
+
+/* Form grid */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr;}}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-group.full{grid-column:1/-1;}
+.form-label{font-size:12.5px;font-weight:700;color:var(--black);}
+.form-label span{color:var(--orange);}
+.form-inp{padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;color:var(--black);outline:none;font-family:'Satoshi',sans-serif;transition:all .2s;background:#fff;}
+.form-inp:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-mid);}
+.form-inp::placeholder{color:var(--gray-lt);}
+.form-sel{padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;color:var(--black);outline:none;font-family:'Satoshi',sans-serif;cursor:pointer;appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2.5' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 14px center;transition:all .2s;}
+.form-sel:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-mid);}
+.form-textarea{padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;color:var(--black);outline:none;font-family:'Satoshi',sans-serif;resize:vertical;min-height:130px;line-height:1.65;transition:all .2s;background:#fff;}
+.form-textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-mid);}
+.form-textarea::placeholder{color:var(--gray-lt);}
+/* File upload */
+.file-upload{border:1.5px dashed var(--border);border-radius:10px;padding:24px;text-align:center;cursor:pointer;transition:all .2s;background:#fafaf8;}
+.file-upload:hover{border-color:var(--blue);background:var(--blue-lt);}
+.fu-icon svg{width:28px;height:28px;stroke:var(--gray-lt);fill:none;margin:0 auto 8px;}
+.fu-text{font-size:13.5px;font-weight:600;color:var(--gray);}
+.fu-sub{font-size:12px;color:var(--gray-lt);margin-top:3px;}
+/* Privacy */
+.form-privacy{display:flex;align-items:flex-start;gap:10px;margin-top:4px;}
+.form-cb{width:18px;height:18px;accent-color:var(--blue);cursor:pointer;margin-top:2px;flex-shrink:0;}
+.form-privacy-txt{font-size:13px;color:var(--gray);line-height:1.6;}
+.form-privacy-txt a{color:var(--blue);font-weight:600;}
+/* Submit */
+.btn-submit{width:100%;padding:14px;border-radius:12px;background:var(--orange);color:#fff;font-size:16px;font-weight:800;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 24px rgba(232,105,44,.32);border:none;margin-top:10px;}
+.btn-submit svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.2;}
+.btn-submit:hover{background:var(--orange-dk);transform:translateY(-2px);box-shadow:0 14px 36px rgba(232,105,44,.42);}
+/* Success state */
+.form-success{display:none;text-align:center;padding:48px 24px;}
+.fs-icon{width:64px;height:64px;border-radius:50%;background:var(--green-lt);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.fs-icon svg{width:30px;height:30px;stroke:var(--green);fill:none;stroke-width:2.5;}
+.fs-title{font-size:22px;font-weight:900;color:var(--black);margin-bottom:10px;}
+.fs-text{font-size:15px;color:var(--gray);line-height:1.7;margin-bottom:28px;}
+.fs-back{padding:12px 28px;border-radius:11px;background:var(--blue);color:#fff;font-size:14px;font-weight:800;cursor:pointer;transition:all .2s;border:none;}
+.fs-back:hover{background:var(--blue-dk);}
+
+/* ── FAQ MINI ── */
+.faq-mini{padding:80px 0;background:var(--cream);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px;}
+@media(max-width:768px){.faq-grid{grid-template-columns:1fr;}}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;cursor:pointer;font-size:15px;font-weight:700;color:var(--black);gap:16px;transition:background .15s;}
+.faq-q:hover{background:var(--cream);}
+.faq-q svg{width:18px;height:18px;stroke:var(--gray-lt);fill:none;flex-shrink:0;transition:transform .25s;}
+.faq-item.open .faq-q svg{transform:rotate(45deg);stroke:var(--orange);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.faq-item.open .faq-a{max-height:300px;}
+.faq-a-inner{padding:0 24px 22px;font-size:14.5px;color:var(--gray);line-height:1.75;border-top:1px solid var(--border);}
+.faq-a-inner{padding-top:16px;}
+
+/* ── TEAM / SUPPORT ── */
+.team-section{padding:80px 0;}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;}
+@media(max-width:900px){.team-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.team-grid{grid-template-columns:1fr;}}
+.team-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:28px 24px;text-align:center;transition:all .25s;}
+.team-card:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(0,0,0,.08);}
+.tc-av{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:#fff;margin:0 auto 16px;}
+.tc-name{font-size:16px;font-weight:800;color:var(--black);margin-bottom:4px;}
+.tc-role{font-size:12.5px;font-weight:600;color:var(--orange);margin-bottom:10px;}
+.tc-dept{font-size:12px;color:var(--gray);margin-bottom:16px;line-height:1.5;}
+.tc-email{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--blue);cursor:pointer;transition:color .2s;}
+.tc-email:hover{color:var(--orange);}
+.tc-email svg{width:13px;height:13px;stroke:currentColor;fill:none;}
+
+/* ── MAP SECTION ── */
+.map-section{background:var(--dark);position:relative;overflow:hidden;}
+.map-inner{display:grid;grid-template-columns:1fr 1.8fr;min-height:480px;}
+@media(max-width:900px){.map-inner{grid-template-columns:1fr;}}
+.map-info{padding:64px 64px 64px 0;display:flex;flex-direction:column;justify-content:center;}
+@media(max-width:1280px){.map-info{padding:48px 48px 48px 0;}}
+@media(max-width:900px){.map-info{padding:48px 0;}}
+.mi-label{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:14px;}
+.mi-title{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.8px;margin-bottom:20px;}
+.mi-addr{font-size:15px;color:rgba(255,255,255,.45);line-height:2;margin-bottom:24px;}
+.mi-addr strong{color:rgba(255,255,255,.75);font-weight:700;}
+.mi-chips{display:flex;gap:8px;flex-wrap:wrap;}
+.mi-chip{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:100px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);font-size:12px;font-weight:600;color:rgba(255,255,255,.5);}
+.mi-chip svg{width:12px;height:12px;stroke:var(--orange);fill:none;}
+.map-visual{position:relative;overflow:hidden;min-height:480px;}
+@media(max-width:900px){.map-visual{min-height:300px;}}
+.map-visual iframe{position:absolute;inset:0;width:100%;height:100%;border:none;filter:grayscale(20%) contrast(1.05);}
+.map-overlay{position:absolute;top:24px;left:24px;background:#fff;border-radius:14px;padding:16px 20px;box-shadow:0 8px 28px rgba(0,0,0,.18);max-width:220px;}
+.mo-name{font-size:13.5px;font-weight:800;color:var(--black);margin-bottom:3px;}
+.mo-addr{font-size:12px;color:var(--gray);line-height:1.5;}
+.mo-dot{display:flex;align-items:center;gap:5px;margin-top:8px;font-size:11px;font-weight:700;color:var(--green);}
+.mo-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);}
+
+/* ── CTA STRIP ── */
+.cta-strip{background:linear-gradient(135deg,var(--orange-dk),var(--orange));padding:72px 0;}
+.cta-inner{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;}
+@media(max-width:768px){.cta-inner{grid-template-columns:1fr;gap:32px;}}
+.cta-title{font-size:clamp(22px,2.8vw,36px);font-weight:900;color:#fff;letter-spacing:-.8px;margin-bottom:10px;}
+.cta-sub{font-size:15px;color:rgba(255,255,255,.6);line-height:1.65;}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-white{padding:14px 28px;border-radius:12px;background:#fff;color:var(--orange);font-size:14.5px;font-weight:800;cursor:pointer;transition:all .2s;border:none;white-space:nowrap;}
+.btn-white:hover{background:var(--cream);}
+.btn-ghost-w{padding:14px 28px;border-radius:12px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);color:#fff;font-size:14.5px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.btn-ghost-w:hover{background:rgba(255,255,255,.2);}
+
+/* ── FOOTER ── */
+.footer{background:var(--dark);padding:64px 0 0;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.07);}
+@media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.footer-top{grid-template-columns:1fr;}}
+.ft-brand{display:flex;flex-direction:column;gap:16px;}
+.ft-desc{font-size:13.5px;color:rgba(255,255,255,.35);line-height:1.75;max-width:280px;}
+.ft-socials{display:flex;gap:8px;}
+.ft-soc{width:34px;height:34px;border-radius:9px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;}
+.ft-soc svg{width:14px;height:14px;stroke:rgba(255,255,255,.4);fill:none;}
+.ft-soc:hover{border-color:var(--orange);background:rgba(232,105,44,.12);}
+.ft-soc:hover svg{stroke:var(--orange);}
+.ft-col-h{font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:18px;}
+.ft-links{display:flex;flex-direction:column;gap:10px;}
+.ft-links a{font-size:13.5px;color:rgba(255,255,255,.42);transition:color .2s;}
+.ft-links a:hover{color:rgba(255,255,255,.85);}
+.footer-bot{display:flex;align-items:center;justify-content:space-between;padding:22px 0;gap:16px;flex-wrap:wrap;}
+.ft-copy{font-size:12.5px;color:rgba(255,255,255,.22);}
+.ft-badges{display:flex;gap:8px;flex-wrap:wrap;}
+.ft-badge{font-size:11px;font-weight:700;color:rgba(255,255,255,.3);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:4px 11px;}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.rev.in{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+
+@media(max-width:900px){.nav-links,.btn-nav-out{display:none;}.ham-btn{display:flex;}}
+</style>
+</head>
+<body>
+
+<!-- ANN BAR -->
+<div class="ann-bar" id="annBar">
+  <div class="ann-text">
+    <span class="ann-chip">NEW</span>
+    <span>Installatie dosier v3.2 is live — Auto-PDF generation now 2× faster</span>
+    <span style="color:rgba(255,255,255,.3)">·</span>
+    <a class="ann-link" href="#">See what's new →</a>
+  </div>
+  <button class="ann-close" onclick="closeAnn()"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+</div>
+
+<!-- NAVBAR -->
+<nav class="nav glass" id="navbar">
+  <div class="nav-wrap">
+    <a class="logo" href="marketing-homepage.html">
+      <div class="logo-box"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <span class="logo-word">Installatie dosier<span class="dot">.</span></span>
+    </a>
+    <div class="nav-links">
+      <a class="n-link" href="marketing-homepage.html">Product</a>
+      <a class="n-link" href="#">Pricing</a>
+      <a class="n-link" href="blogs.html">Blog</a>
+      <a class="n-link" href="about.html">About</a>
+      <a class="n-link active-link" href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-nav-out">Log In</button>
+      <button class="btn-nav-fill">Start Free Trial</button>
+    </div>
+    <button class="ham-btn" onclick="toggleMob()"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a class="mob-link" href="marketing-homepage.html">Product</a>
+  <a class="mob-link" href="#">Pricing</a>
+  <a class="mob-link" href="blogs.html">Blog</a>
+  <a class="mob-link" href="about.html">About</a>
+  <a class="mob-link" href="contact.html">Contact</a>
+  <div class="mob-btns">
+    <button style="padding:14px;border-radius:11px;border:1.5px solid var(--border);font-size:15px;font-weight:700;">Log In</button>
+    <button style="padding:14px;border-radius:11px;background:var(--orange);color:#fff;font-size:15px;font-weight:800;">Start Free Trial</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-stripe"></div>
+  <div class="wrap">
+    <div class="hero-inner rev">
+      <div class="h-eyebrow">
+        <div class="h-pulse"></div>
+        <span class="h-eyebrow-txt">We respond within 2 hours</span>
+      </div>
+      <h1 class="hero-h1">Get in Touch with<br/><span>Our Team</span></h1>
+      <p class="hero-p">Whether you have a question about features, pricing, need a demo, or just want to talk — we're here and ready to help.</p>
+    </div>
+
+    <div class="hero-options rev">
+      <div class="ho-card featured" onclick="setTab('sales')">
+        <div class="ho-icon" style="background:var(--orange);"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div class="ho-title">Talk to Sales</div>
+        <div class="ho-desc">Get a personalized demo and pricing for your company size.</div>
+        <span class="ho-tag orange">Most popular</span>
+      </div>
+      <div class="ho-card" onclick="setTab('support')">
+        <div class="ho-icon" style="background:var(--blue);"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <div class="ho-title">Technical Support</div>
+        <div class="ho-desc">Already a customer? Get help from our support team.</div>
+        <span class="ho-tag green">Avg. 45 min response</span>
+      </div>
+      <div class="ho-card" onclick="setTab('general')">
+        <div class="ho-icon" style="background:var(--dark3);"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="ho-title">General Enquiry</div>
+        <div class="ho-desc">Partnerships, press, or anything else — we'd love to hear from you.</div>
+        <span class="ho-tag blue">We reply within 24h</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <!-- LEFT -->
+      <div>
+        <div class="sec-label rev">Get in Touch</div>
+        <h2 class="sec-h2 rev">We'd Love to <br/>Hear From You</h2>
+        <p class="sec-p rev">Our team is based in Amsterdam and typically responds within 2 business hours during office hours. For urgent technical issues, use our live chat — available 7 days a week.</p>
+
+        <div class="contact-methods">
+          <div class="cm-item rev">
+            <div class="cm-icon" style="background:var(--orange);"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div>
+              <div class="cm-label">Phone</div>
+              <div class="cm-val">+31 (0) 20 123 4567</div>
+              <div class="cm-sub">Mon–Fri, 8:00 – 18:00 CET</div>
+            </div>
+          </div>
+          <div class="cm-item rev d1">
+            <div class="cm-icon" style="background:var(--blue);"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div>
+              <div class="cm-label">Email</div>
+              <div class="cm-val">hello@bouwlogboek.nl</div>
+              <div class="cm-sub">We reply within 2 business hours</div>
+            </div>
+          </div>
+          <div class="cm-item rev d2">
+            <div class="cm-icon" style="background:#7c3aed;"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div>
+              <div class="cm-label">Live Chat</div>
+              <div class="cm-val">Available in the app</div>
+              <div class="cm-sub">7 days a week · 08:00 – 22:00 CET</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="office-card rev">
+          <div class="oc-label">Our Office</div>
+          <div class="oc-name">Installatie dosier B.V.</div>
+          <div class="oc-addr">
+            <strong>Herengracht 182</strong><br/>
+            1016 BR Amsterdam<br/>
+            Netherlands<br/>
+            KVK: 72841930
+          </div>
+          <button class="oc-map-btn"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>View on Google Maps</button>
+        </div>
+
+        <div class="rev">
+          <div style="font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-lt);margin-bottom:14px;">Office Hours</div>
+          <div class="hours-grid">
+            <div class="hours-item">
+              <div class="hi-day">Monday – Friday</div>
+              <div class="hi-time">08:00 – 18:00</div>
+              <div class="hi-status"><div class="hi-dot" style="background:var(--green);"></div><span style="color:var(--green);font-size:11px;font-weight:700;">Open today</span></div>
+            </div>
+            <div class="hours-item">
+              <div class="hi-day">Saturday</div>
+              <div class="hi-time">09:00 – 14:00</div>
+              <div class="hi-status"><div class="hi-dot" style="background:var(--gray-lt);"></div><span style="color:var(--gray-lt);font-size:11px;font-weight:700;">Email only</span></div>
+            </div>
+            <div class="hours-item" style="grid-column:1/-1;">
+              <div class="hi-day">Sunday & Public Holidays</div>
+              <div class="hi-time">Closed</div>
+              <div class="hi-status"><div class="hi-dot" style="background:var(--gray-lt);"></div><span style="color:var(--gray-lt);font-size:11px;font-weight:700;">Emergency support via chat</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="rev">
+        <div class="form-card" id="formCard">
+          <div class="form-title">Send Us a Message</div>
+          <div class="form-sub">Fill in the form and we'll get back to you within 2 business hours.</div>
+
+          <!-- Category tabs -->
+          <div class="form-tabs">
+            <button class="form-tab active" id="tabSales" onclick="setTab('sales')">Sales & Demo</button>
+            <button class="form-tab" id="tabSupport" onclick="setTab('support')">Support</button>
+            <button class="form-tab" id="tabGeneral" onclick="setTab('general')">General</button>
+          </div>
+
+          <form id="contactForm" onsubmit="submitForm(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">First Name <span>*</span></label>
+                <input class="form-inp" type="text" placeholder="Jan" required/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name <span>*</span></label>
+                <input class="form-inp" type="text" placeholder="Adriaansen" required/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Work Email <span>*</span></label>
+                <input class="form-inp" type="email" placeholder="jan@elektroBouw.nl" required/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input class="form-inp" type="tel" placeholder="+31 6 12345678"/>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Company Name <span>*</span></label>
+                <input class="form-inp" type="text" placeholder="ElektroBouw Amsterdam B.V." required/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Company Size</label>
+                <select class="form-sel">
+                  <option value="">Select size…</option>
+                  <option>1–3 employees</option>
+                  <option>4–10 employees</option>
+                  <option>11–25 employees</option>
+                  <option>26–50 employees</option>
+                  <option>50+ employees</option>
+                </select>
+              </div>
+              <div class="form-group" id="subjectGroup">
+                <label class="form-label">Subject</label>
+                <select class="form-sel" id="subjectSel">
+                  <option value="">Select topic…</option>
+                  <option>Request a demo</option>
+                  <option>Pricing information</option>
+                  <option>Technical question</option>
+                  <option>Feature request</option>
+                  <option>Partnership</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Message <span>*</span></label>
+                <textarea class="form-textarea" placeholder="Tell us how we can help you…" required></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Attachments <span style="color:var(--gray-lt);font-weight:500;">(optional)</span></label>
+                <div class="file-upload" onclick="document.getElementById('fileInp').click()">
+                  <input type="file" id="fileInp" style="display:none;" multiple accept=".pdf,.doc,.docx,.png,.jpg"/>
+                  <div class="fu-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+                  <div class="fu-text">Click to upload or drag & drop</div>
+                  <div class="fu-sub">PDF, DOC, PNG, JPG up to 10 MB</div>
+                </div>
+              </div>
+              <div class="form-group full">
+                <div class="form-privacy">
+                  <input class="form-cb" type="checkbox" required/>
+                  <span class="form-privacy-txt">I agree to the <a href="#">Privacy Policy</a> and consent to Installatie dosier processing my data to respond to my enquiry. I can withdraw this consent at any time.</span>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn-submit">
+              <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+          </form>
+
+          <!-- Success state -->
+          <div class="form-success" id="formSuccess">
+            <div class="fs-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="fs-title">Message Sent! 🎉</div>
+            <div class="fs-text">Thanks for reaching out. Our team will get back to you within 2 business hours. Keep an eye on your inbox at the email address you provided.</div>
+            <button class="fs-back" onclick="resetForm()">Send Another Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM SECTION -->
+<section class="team-section">
+  <div class="wrap">
+    <div style="text-align:center;max-width:560px;margin:0 auto 0;" class="rev">
+      <div class="sec-label">Meet the Team</div>
+      <h2 class="sec-h2">The People Behind Installatie dosier</h2>
+      <p style="font-size:16px;color:var(--gray);line-height:1.75;margin-top:12px;">Real people who understand your business — most of us have worked in the installation industry ourselves.</p>
+    </div>
+    <div class="team-grid" style="margin-top:48px;">
+      <div class="team-card rev">
+        <div class="tc-av" style="background:linear-gradient(135deg,var(--blue),var(--blue-dk));">LB</div>
+        <div class="tc-name">Lars van den Berg</div>
+        <div class="tc-role">CEO & Co-Founder</div>
+        <div class="tc-dept">Former master electrician · 12 years on-site experience</div>
+        <div class="tc-email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>lars@bouwlogboek.nl</div>
+      </div>
+      <div class="team-card rev d1">
+        <div class="tc-av" style="background:linear-gradient(135deg,var(--orange),var(--orange-dk));">PJ</div>
+        <div class="tc-name">Pieter Jansen</div>
+        <div class="tc-role">Head of Sales</div>
+        <div class="tc-dept">Helps companies of all sizes get set up and running fast</div>
+        <div class="tc-email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>pieter@bouwlogboek.nl</div>
+      </div>
+      <div class="team-card rev d2">
+        <div class="tc-av" style="background:linear-gradient(135deg,#7c3aed,#5b21b6);">SV</div>
+        <div class="tc-name">Sophie Vermeer</div>
+        <div class="tc-role">Customer Success</div>
+        <div class="tc-dept">Makes sure every customer gets the most out of Installatie dosier</div>
+        <div class="tc-email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>sophie@bouwlogboek.nl</div>
+      </div>
+      <div class="team-card rev d3">
+        <div class="tc-av" style="background:linear-gradient(135deg,var(--green),#15803d);">MK</div>
+        <div class="tc-name">Mark Koolen</div>
+        <div class="tc-role">Technical Support Lead</div>
+        <div class="tc-dept">First line for all technical questions · 7-day availability</div>
+        <div class="tc-email"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>mark@bouwlogboek.nl</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ MINI -->
+<section class="faq-mini">
+  <div class="wrap">
+    <div class="rev" style="text-align:center;max-width:540px;margin:0 auto;">
+      <div class="sec-label">Quick Answers</div>
+      <h2 class="sec-h2">Frequently Asked Questions</h2>
+      <p style="font-size:16px;color:var(--gray);line-height:1.75;margin-top:12px;">Can't find your answer here? <a href="faqs.html" style="color:var(--blue);font-weight:700;">Visit our full FAQ page →</a></p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item rev" onclick="toggleFaq(this)">
+        <div class="faq-q">How quickly can I get started?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><div class="faq-a-inner">Most companies are up and running within the same day. You can create your first project and invite team members within 15 minutes of signing up. No training needed — the interface is designed to be intuitive for field workers.</div></div>
+      </div>
+      <div class="faq-item rev d1" onclick="toggleFaq(this)">
+        <div class="faq-q">Do you offer a free trial?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — all plans come with a 14-day free trial, full access to all features, no credit card required. If you need more time to evaluate, just contact us and we'll extend it.</div></div>
+      </div>
+      <div class="faq-item rev d1" onclick="toggleFaq(this)">
+        <div class="faq-q">Is Installatie dosier GDPR compliant?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><div class="faq-a-inner">Fully. All data is hosted on Dutch servers, we have a Data Processing Agreement (DPA) available, and we never share your data with third parties. We're also ISO 27001 certified.</div></div>
+      </div>
+      <div class="faq-item rev d2" onclick="toggleFaq(this)">
+        <div class="faq-q">Can I import my existing documents?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. We support bulk import from Google Drive, Dropbox, OneDrive, and direct file upload. Our onboarding team can also help you migrate existing documents if you're on a Pro or Business plan.</div></div>
+      </div>
+      <div class="faq-item rev d2" onclick="toggleFaq(this)">
+        <div class="faq-q">What happens when my trial ends?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><div class="faq-a-inner">Your data is kept safe for 30 days. You can choose a plan to continue, or export all your data for free. We'll never delete anything without giving you plenty of notice.</div></div>
+      </div>
+      <div class="faq-item rev d3" onclick="toggleFaq(this)">
+        <div class="faq-q">Do you offer volume discounts?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — for teams of 15+ we offer custom enterprise pricing. Contact our sales team and we'll put together a tailored proposal within one business day.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP SECTION -->
+<section class="map-section">
+  <div class="wrap" style="padding:0;">
+    <div class="map-inner">
+      <div class="map-info">
+        <div class="wrap" style="padding:0 72px 0 0;">
+          <div class="mi-label">Our Location</div>
+          <div class="mi-title">Visit Us in Amsterdam</div>
+          <div class="mi-addr">
+            <strong>Installatie dosier B.V.</strong><br/>
+            Herengracht 182<br/>
+            1016 BR Amsterdam<br/>
+            Netherlands
+          </div>
+          <div class="mi-chips">
+            <div class="mi-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Fri 08:00–18:00</div>
+            <div class="mi-chip"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>Tram stop nearby</div>
+            <div class="mi-chip"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Parking available</div>
+          </div>
+        </div>
+      </div>
+      <div class="map-visual">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.0!2d4.893!3d52.368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609c3db87e643%3A0xa13b33bae7cc50e!2sHerengracht%2C%20Amsterdam!5e0!3m2!1sen!2snl!4v1708000000000!5m2!1sen!2snl" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-overlay">
+          <div class="mo-name">Installatie dosier B.V.</div>
+          <div class="mo-addr">Herengracht 182<br/>1016 BR Amsterdam</div>
+          <div class="mo-dot">Open today</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="wrap">
+    <div class="cta-inner rev">
+      <div>
+        <div class="cta-title">Ready to Stop Losing €12K Per Year?</div>
+        <div class="cta-sub">Join 1,200+ installation companies who already use Installatie dosier. 14-day trial, no credit card required.</div>
+      </div>
+      <div class="cta-btns">
+        <button class="btn-white">Start Free Trial →</button>
+        <button class="btn-ghost-w" onclick="setTab('sales');document.querySelector('.contact-section').scrollIntoView({behavior:'smooth'})">Book a Demo</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="ft-brand">
+        <a class="logo" href="marketing-homepage.html">
+          <div class="logo-box"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <span class="logo-word">Installatie dosier<span class="dot">.</span></span>
+        </a>
+        <p class="ft-desc">The complete document management platform for installation and construction professionals in the Netherlands.</p>
+        <div class="ft-socials">
+          <div class="ft-soc"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></div>
+          <div class="ft-soc"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div class="ft-soc"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+        </div>
+      </div>
+      <div><div class="ft-col-h">Product</div><div class="ft-links"><a href="#">Features</a><a href="#">Pricing</a><a href="#">Client Portal</a><a href="#">Employee Portal</a><a href="#">API Docs</a></div></div>
+      <div><div class="ft-col-h">Company</div><div class="ft-links"><a href="about.html">About Us</a><a href="blogs.html">Blog</a><a href="#">Careers</a><a href="contact.html">Contact</a></div></div>
+      <div><div class="ft-col-h">Support</div><div class="ft-links"><a href="faqs.html">FAQ</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">GDPR</a><a href="#">System Status</a></div></div>
+    </div>
+    <div class="footer-bot">
+      <div class="ft-copy">© 2026 Installatie dosier B.V. — Amsterdam, Netherlands. All rights reserved.</div>
+      <div class="ft-badges"><div class="ft-badge">🔒 GDPR</div><div class="ft-badge">🇳🇱 Dutch Hosted</div><div class="ft-badge">ISO 27001</div></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ANN CLOSE */
+function closeAnn(){
+  const b=document.getElementById('annBar');
+  b.style.height='0';b.style.padding='0';b.style.overflow='hidden';b.style.transition='all .3s';
+  document.documentElement.style.setProperty('--ann-h','0px');
+}
+
+/* NAVBAR */
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>nav.classList.toggle('glass',window.scrollY>10),{passive:true});
+
+/* MOBILE MENU */
+function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');}
+
+/* FORM TABS */
+function setTab(tab){
+  document.querySelectorAll('.form-tab').forEach(t=>t.classList.remove('active'));
+  const map={sales:'tabSales',support:'tabSupport',general:'tabGeneral'};
+  document.getElementById(map[tab])?.classList.add('active');
+  // update subject options
+  const sel=document.getElementById('subjectSel');
+  if(tab==='sales'){
+    sel.innerHTML='<option value="">Select topic…</option><option>Request a demo</option><option>Pricing information</option><option>Enterprise quote</option><option>Feature comparison</option>';
+  } else if(tab==='support'){
+    sel.innerHTML='<option value="">Select topic…</option><option>Technical issue</option><option>Bug report</option><option>Account problem</option><option>Data export</option><option>Integration help</option>';
+  } else {
+    sel.innerHTML='<option value="">Select topic…</option><option>Partnership</option><option>Press & media</option><option>Feature request</option><option>Feedback</option><option>Other</option>';
+  }
+  // scroll to form on mobile
+  if(window.innerWidth<900){document.querySelector('.contact-section').scrollIntoView({behavior:'smooth'});}
+}
+
+/* FORM SUBMIT */
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('contactForm').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+  document.querySelector('.form-title').style.display='none';
+  document.querySelector('.form-sub').style.display='none';
+  document.querySelectorAll('.form-tabs').forEach(t=>t.style.display='none');
+}
+function resetForm(){
+  document.getElementById('contactForm').style.display='';
+  document.getElementById('formSuccess').style.display='none';
+  document.querySelector('.form-title').style.display='';
+  document.querySelector('.form-sub').style.display='';
+  document.querySelectorAll('.form-tabs').forEach(t=>t.style.display='');
+  document.getElementById('contactForm').reset();
+}
+
+/* FAQ TOGGLE */
+function toggleFaq(el){
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)el.classList.add('open');
+}
+
+/* FILE UPLOAD label */
+document.getElementById('fileInp')?.addEventListener('change',function(){
+  const n=this.files.length;
+  if(n>0){
+    document.querySelector('.fu-text').textContent=`${n} file${n>1?'s':''} selected`;
+    document.querySelector('.fu-sub').textContent='Click to change selection';
+  }
+});
+
+/* REVEAL */
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');}),{threshold:.08});
+document.querySelectorAll('.rev').forEach(el=>{obs.observe(el);if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('in');});
+</script>
+</body>
+</html>

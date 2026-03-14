@@ -6,7 +6,7 @@ export default function PhotoStrip() {
       <div className="wrap tc">
         <div className="sec-tag tag-blue">✦ Built for the Field</div>
         <h2 className="sec-h2">Used by <span className="hl-blue">Professionals</span> Everywhere</h2>
-        <p className="sec-p" style={{marginBottom:48}}>From high-rise construction sites to residential installations — Instadocu keeps every team connected.</p>
+        <p className="sec-p" style={{marginBottom:48}}>From high-rise construction sites to residential installations — Installatie dosier keeps every team connected.</p>
         <div className={s.photoGrid}>
           {[
             {src:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',lbl:'Construction Sites',tall:true},

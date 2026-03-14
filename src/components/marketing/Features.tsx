@@ -15,7 +15,7 @@ export default function Features() {
       <div className="wrap tc">
         <div className="sec-tag tag-blue">✦ Features</div>
         <h2 className="sec-h2">Everything You Need to <span className="hl-blue">Manage Documents</span></h2>
-        <p className="sec-p">From upload to client sign-off — Instadocu handles every step of your document workflow with power tools built for installation professionals.</p>
+        <p className="sec-p">From upload to client sign-off — Installatie dosier handles every step of your document workflow with power tools built for installation professionals.</p>
         <div className={s.featGrid}>
           {FEATS.map((f,i) => (
             <div key={i} className={`${s.featCard} reveal rd${(i%4)+1}`}>

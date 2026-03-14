@@ -6,7 +6,7 @@ export default function Newsletter() {
       <div className="wrap">
         <div className={s.nlInner}>
           <div>
-            <div className={s.nlTitle}>Stay Updated with Instadocu</div>
+            <div className={s.nlTitle}>Stay Updated with Installatie dosier</div>
             <div className={s.nlSub}>Weekly tips on document management, product updates & industry news.</div>
           </div>
           <form className={s.nlForm} onSubmit={(e) => e.preventDefault()}>
